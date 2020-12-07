@@ -1,6 +1,9 @@
 ﻿using System;
 using SQLite;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+
 namespace EducationTracker.Classes
 {
     public class Universals
@@ -12,9 +15,6 @@ namespace EducationTracker.Classes
         public static Term CurrentTerm { get; set; }
         public static Course CurrentCourse { get; set; }
         public static Assessment CurrentAssessment { get; set; }
-
-
-        //SQLiteConnection dbConnection = new SQLiteConnection(dbCompletePath);
 
         public void PopulateTerm()
         {
@@ -253,6 +253,5 @@ namespace EducationTracker.Classes
 
             }
         }
-
     }
 }

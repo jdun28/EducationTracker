@@ -3,8 +3,9 @@
     
        <NavigationPage.TitleView>
         <Label x:Name="courseInfoTV"
-                   Text="Course Information"
+                   Text="Class Details"
                    FontAttributes="Bold"
+                   TextColor="Black"
                    FontSize="Title"
                    HorizontalTextAlignment="Center"/>
         </NavigationPage.TitleView>
@@ -126,14 +127,22 @@
             </StackLayout>
         </ScrollView>
             <StackLayout Padding="10,0,10,10">
-
+                <Grid>
+                    <Button x:Name="editCourseButton"
+                            Text="Edit"
+                            Clicked="editCourseButton_Clicked"
+                            Grid.Column="0"/>
+                    <Button x:Name="deleteCourseButton"
+                            Text="Delete Class"
+                            Clicked="DeleteCourseButton_Clicked"
+                            Grid.Column="1"/>
                 <Button x:Name="ViewAssessments"
                         Text="View Assessments"
                         FontSize="Body"
                         Clicked="ViewAssessments_Clicked"
-                        HorizontalOptions="Center"
-                        VerticalOptions="End"/>
-            </StackLayout>
+                        Grid.Column="2"/>
+                    </Grid>
+                </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

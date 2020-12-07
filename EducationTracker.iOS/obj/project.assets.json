@@ -1441,20 +1441,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/jendunlap/.nuget/packages/": {}
+    "/Users/jend/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jendunlap/Projects/EducationTracker/EducationTracker.iOS/EducationTracker.iOS.csproj",
+      "projectUniqueName": "/Users/jend/Projects/EducationTracker/EducationTracker.iOS/EducationTracker.iOS.csproj",
       "projectName": "EducationTracker.iOS",
-      "projectPath": "/Users/jendunlap/Projects/EducationTracker/EducationTracker.iOS/EducationTracker.iOS.csproj",
-      "packagesPath": "/Users/jendunlap/.nuget/packages/",
-      "outputPath": "/Users/jendunlap/Projects/EducationTracker/EducationTracker.iOS/obj/",
+      "projectPath": "/Users/jend/Projects/EducationTracker/EducationTracker.iOS/EducationTracker.iOS.csproj",
+      "packagesPath": "/Users/jend/.nuget/packages/",
+      "outputPath": "/Users/jend/Projects/EducationTracker/EducationTracker.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/jendunlap/.config/NuGet/NuGet.Config"
+        "/Users/jend/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
@@ -1465,8 +1465,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/jendunlap/Projects/EducationTracker/EducationTracker/EducationTracker.csproj": {
-              "projectPath": "/Users/jendunlap/Projects/EducationTracker/EducationTracker/EducationTracker.csproj"
+            "/Users/jend/Projects/EducationTracker/EducationTracker/EducationTracker.csproj": {
+              "projectPath": "/Users/jend/Projects/EducationTracker/EducationTracker/EducationTracker.csproj"
             }
           }
         }

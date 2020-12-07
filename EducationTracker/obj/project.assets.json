@@ -931,19 +931,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/jendunlap/.nuget/packages/": {}
+    "/Users/jend/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jendunlap/Projects/EducationTracker/EducationTracker/EducationTracker.csproj",
+      "projectUniqueName": "/Users/jend/Projects/EducationTracker/EducationTracker/EducationTracker.csproj",
       "projectName": "EducationTracker",
-      "projectPath": "/Users/jendunlap/Projects/EducationTracker/EducationTracker/EducationTracker.csproj",
-      "packagesPath": "/Users/jendunlap/.nuget/packages/",
-      "outputPath": "/Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/",
+      "projectPath": "/Users/jend/Projects/EducationTracker/EducationTracker/EducationTracker.csproj",
+      "packagesPath": "/Users/jend/.nuget/packages/",
+      "outputPath": "/Users/jend/Projects/EducationTracker/EducationTracker/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/jendunlap/.config/NuGet/NuGet.Config"
+        "/Users/jend/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
