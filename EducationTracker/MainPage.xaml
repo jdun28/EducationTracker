@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EducationTracker.MainPage">
+    <NavigationPage.TitleView>
+        <Label Text="Education Tracker"
+               x:Name="educationTrackerTV"
+               TextColor="Black"
+               FontAttributes="Bold"
+               FontSize="Title"
+               HorizontalTextAlignment="Center"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                    <StackLayout>
+                        <ListView x:Name="TermsListView"
+                                  ItemSelected="TermsListView_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding TermName}"
+                                              TextColor="Black"
+                                              Detail="{Binding TermStart, StringFormat='{0:MM/dd/yyyy}'}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+            </ScrollView>
+                    <Grid HorizontalOptions="Center"
+                          Padding="10,0,10,10">
+                        <Button x:Name="viewTermButton"
+                                Text="View"
+                                Clicked="ViewTermButton_Clicked"
+                                Grid.Column="0"/>
+                        <Button x:Name="AddTermButton"
+                                Text="Add"
+                                Clicked="AddTermButton_Clicked"
+                                Grid.Column="1"/>
+                        <Button x:Name="EditTermButton"
+                                Text="Edit"
+                                Clicked="EditTermButton_Clicked"
+                                Grid.Column="2"/>
+                        <Button x:Name="DeleteTermButton"
+                                Text="Delete"
+                                Clicked="DeleteTermButton_Clicked"
+                                Grid.Column="3"/>
+                    </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

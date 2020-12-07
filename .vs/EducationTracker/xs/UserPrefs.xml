@@ -1,0 +1,66 @@
+﻿<Properties StartupConfiguration="{196C888C-CE7C-4164-A405-585CC9885FD5}|Default" HasHotReloadOverlayBeenDismissed="True">
+  <MonoDevelop.Ide.ItemProperties.EducationTracker.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" TriggeredFromHotReload="False" PreferredExecutionTarget="Android.pixel_2_q_10_0_-_api_29" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="EducationTracker/CoursePage.xaml.cs">
+    <Files>
+      <File FileName="EducationTracker/AssessmentPage.xaml" Line="19" Column="89" NotebookId="2" />
+      <File FileName="EducationTracker/CoursePage.xaml" Line="18" Column="73" NotebookId="2" />
+      <File FileName="EducationTracker/Classes/Term.cs" Line="1" Column="1" NotebookId="2" />
+      <File FileName="EducationTracker/Classes/Universals.cs" Line="35" Column="1" NotebookId="2" />
+      <File FileName="EducationTracker/AddEditAssessment.xaml" Line="1" Column="1" NotebookId="2" />
+      <File FileName="EducationTracker/App.xaml" NotebookId="2" />
+      <File FileName="EducationTracker/CoursePage.xaml.cs" Line="32" Column="68" NotebookId="2" />
+      <File FileName="EducationTracker/AddEditCourse.xaml.cs" Line="61" Column="1" NotebookId="2" />
+    </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="3440" Y="415" Width="1680" Height="997">
+        <Files>
+          <File FileName="EducationTracker/Classes/Course.cs" Line="25" Column="1" />
+          <File FileName="EducationTracker/Classes/Assessment.cs" />
+        </Files>
+      </FloatingWindow>
+      <FloatingWindow WindowId="2" X="0" Y="25" Width="1720" Height="1387">
+        <Files>
+          <File FileName="EducationTracker/MainPage.xaml" Line="36" Column="43" NotebookId="1" />
+          <File FileName="EducationTracker/MainPage.xaml.cs" Line="67" Column="1" NotebookId="1" />
+          <File FileName="EducationTracker/AddEditTerm.xaml.cs" Line="1" Column="1" NotebookId="1" />
+          <File FileName="EducationTracker/AddEditCourse.xaml" Line="11" Column="1" NotebookId="1" />
+          <File FileName="EducationTracker/App.xaml.cs" Line="43" Column="1" NotebookId="1" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="EducationTracker" expanded="True">
+            <Node name="EducationTracker" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Classes" expanded="True" />
+              <Node name="AddEditCourse.xaml" expanded="True" />
+              <Node name="AddEditTerm.xaml" expanded="True" />
+              <Node name="App.xaml" expanded="True" />
+              <Node name="CoursePage.xaml" expanded="True">
+                <Node name="CoursePage.xaml.cs" selected="True" />
+              </Node>
+              <Node name="MainPage.xaml" expanded="True" />
+            </Node>
+            <Node name="EducationTracker.Android" expanded="True">
+              <Node name="Assets" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/jendunlap/Projects/EducationTracker/EducationTracker/CoursePage.xaml.cs" relfile="EducationTracker/CoursePage.xaml.cs" line="33" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

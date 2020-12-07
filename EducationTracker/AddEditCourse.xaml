@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.AddEditCourse">
+    <!--<NavigationPage.HasBackButton/>-->
+    <NavigationPage.TitleView>
+        <Label x:Name="courseInfoTV"
+                   Text="Course Information"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"/>
+        </NavigationPage.TitleView>
+        <StackLayout>
+            <StackLayout>
+                    <Grid>
+                        <Label 
+                               Text="Course Name:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <Entry x:Name="courseNameEntry"
+                               Placeholder="Enter Course Name"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               FontSize="Body"
+                               TextChanged="courseNameEntry_TextChanged"
+                               Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Label 
+                               Text="Course Status:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <Picker x:Name="courseStatusPicker"
+                                Title="Status"
+                                TitleColor="Gray"
+                                TextColor="Black"
+                                SelectedIndexChanged="courseStatusPicker_SelectedIndexChanged"
+                                Grid.Column="1">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Not Started</x:String>
+                                    <x:String>In Progress</x:String>
+                                    <x:String>Completed</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Grid>
+                    <Grid>
+                        <Label 
+                               Text="Course Start Date:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <DatePicker x:Name="courseStartDatePicker"
+                                    DateSelected="courseStartDatePicker_DateSelected"
+                                    Grid.Column="1"/>
+                    </Grid>
+
+                    <Grid Padding="10,0,10,20">
+                        <Label 
+                               Text="Course End Date:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <DatePicker x:Name="courseEndDatePicker"
+                                    DateSelected="courseEndDatePicker_DateSelected"
+                                    Grid.Column="1"/>
+                    </Grid>
+                <Label Padding="10,0,0,0"
+                       Text="Instructor Information"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+                       
+                <Grid>
+                    <Label 
+                           Text="Name:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Entry x:Name="instrutorNameEntry"
+                           Placeholder="Instructor Name"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           FontSize="Body"
+                           TextChanged="instrutorNameEntry_TextChanged"
+                           Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Label 
+                           Text="Email:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Entry x:Name="instrutorEmailEntry"
+                           Placeholder="Instructor Email"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           FontSize="Body"
+                           TextChanged="instrutorEmailEntry_TextChanged"
+                           Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Label 
+                           Text="Phone:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Entry x:Name="instrutorPhoneEntry"
+                           Placeholder="Instructor"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           FontSize="Body"
+                           TextChanged="instrutorPhoneEntry_TextChanged"
+                           Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Label 
+                           Text="Notes:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Entry x:Name="notesEntry"
+                           Placeholder="Course Notes"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           FontSize="Body"
+                           TextChanged="notesEntry_TextChanged"
+                           Grid.Column="1"/>
+                </Grid>
+
+            </StackLayout>
+            <StackLayout>
+                    <Grid VerticalOptions="End" HorizontalOptions="Center">
+                        <Button x:Name="saveCourseButton"
+                                Text="Save"
+                                FontSize="Body"
+                                TextColor="White"
+                                BackgroundColor="Teal"
+                                Grid.Column="0"
+                                Clicked="saveCourseButton_Clicked"/>
+                        <Button x:Name="cancelCourseSaveButton"
+                                Text="Cancel"
+                                FontSize="Body"
+                                TextColor="Black"
+                                BackgroundColor="Gray"
+                                Grid.Column="1"
+                                Clicked="cancelCourseSaveButton_Clicked"/>
+                    
+                    </Grid>
+            </StackLayout>
+        </StackLayout>
+</ContentPage>

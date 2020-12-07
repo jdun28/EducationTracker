@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.AddEditTerm">
+    <!--<NavigationPage.HasBackButton/>-->
+    <NavigationPage.TitleView>
+        <Label x:Name="termInfoTV"
+                   Text="Term Information"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"/>
+        </NavigationPage.TitleView>
+            <StackLayout>
+                <StackLayout>
+                        <Grid>
+                            <Label 
+                                   Text="Term Name:"
+                                   FontSize="Subtitle"
+                                   TextColor="Black"
+                                   Grid.Column="0"
+                                   Margin="0,11,0,0"/>
+                            <Entry x:Name="termNameEntry"
+                                   Placeholder="Enter Term Name"
+                                   PlaceholderColor="Gray"
+                                   TextColor="Black"
+                                   FontSize="Body"
+                                   TextChanged="termNameEntry_TextChanged"
+                                   Grid.Column="1"/>
+                        </Grid>
+                        <Grid>
+                            <Label 
+                                   Text="Term Start Date:"
+                                   FontSize="Subtitle"
+                                   TextColor="Black"
+                                   Grid.Column="0"
+                                   Margin="0,11,0,0"/>
+                            <DatePicker x:Name="termStart"
+                                        DateSelected="termStart_DateSelected"
+                                        Grid.Column="1"/>
+                        </Grid>
+
+                        <Grid Padding="10,0,10,20">
+                            <Label 
+                                   Text="Term End Date:"
+                                   FontSize="Subtitle"
+                                   TextColor="Black"
+                                   Grid.Column="0"
+                                   Margin="0,11,0,0"/>
+                            <DatePicker x:Name="termEnd"
+                                        DateSelected="termEnd_DateSelected"
+                                        Grid.Column="1"/>
+                        </Grid>
+                </StackLayout>
+                <StackLayout>
+                        <Grid VerticalOptions="End" HorizontalOptions="Center">
+                            <Button x:Name="saveTermButton"
+                                    Text="Save"
+                                    FontSize="Body"
+                                    TextColor="White"
+                                    BackgroundColor="Teal"
+                                    Grid.Column="0"
+                                    Clicked="saveTermButton_Clicked"/>
+                            <Button x:Name="cancelTermSaveButton"
+                                    Text="Cancel"
+                                    FontSize="Body"
+                                    TextColor="Black"
+                                    BackgroundColor="Gray"
+                                    Grid.Column="1"
+                                    Clicked="cancelTermSaveButton_Clicked"/>
+                    
+                        </Grid>
+                </StackLayout>
+            </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EducationTracker.App">
+    <Application.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="ColumnDefinitions" Value="*"/>
+            <Setter Property="Padding" Value="10,0"/>
+        </Style>
+        <Style TargetType="DatePicker">
+               <Setter Property="MinimumDate" Value="12/01/2020"/>
+               <Setter Property="MaximumDate" Value="01/01/3000"/>
+        </Style>
+
+    </Application.Resources>
+</Application>
