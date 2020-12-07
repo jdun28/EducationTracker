@@ -35,6 +35,7 @@ namespace EducationTracker
 
         void ViewAssessments_Clicked(System.Object sender, System.EventArgs e)
         {
+            Navigation.PushAsync(new AssessmentDetailPage(Universals.CurrentCourse));
         }
     }
 }
