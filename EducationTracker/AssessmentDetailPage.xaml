@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.AssessmentDetailPage">
+    <NavigationPage.TitleView>
+        <Label x:Name="assessmentInfoTV"
+                   Text="Assessment Information"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"/>
+        </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Grid>
+                    <Label Text="Assessment Name"
+                            FontSize="Subtitle"
+                            TextColor="Black"
+                            Grid.Column="0"
+                            Margin="0,11,0,0"/>
+                    <Entry x:Name="assessmentNameEntry"
+                            Placeholder="Enter assessment Name"
+                            PlaceholderColor="Gray"
+                            FontSize="Body"
+                            TextColor="Black"
+                            Grid.Column="1"/>
+                </Grid>
+                <Grid Padding="10,0,10,20">
+                    <Label Text="Assessment Type"
+                           TextColor="Black"
+                           FontSize="Subtitle"
+                           Grid.Column="0"
+                           Margin="0,11,0,0"/>
+                    <Picker x:Name="assessmentPicker"
+                            TextColor="Black"
+                            TitleColor="Gray"
+                            Title="Assessment Type"
+                            FontSize="Body"
+                            Grid.Column="1">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Objective Assessment</x:String>
+                                    <x:String>Performance Assessment</x:String>
+                                    </x:Array>
+                            </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+            </StackLayout>
+            <StackLayout>
+                <!--<Grid VerticalOptions="End" HorizontalOptions="Center">
+                        <Button x:Name="saveAssessmentButton"
+                                Text="Save"
+                                FontSize="Body"
+                                TextColor="White"
+                                BackgroundColor="Teal"
+                                Grid.Column="0"
+                                Clicked="saveAssessmentButton_Clicked"/>
+                        <Button x:Name="cancelAssessmentSaveButton"
+                                Text="Cancel"
+                                FontSize="Body"
+                                TextColor="Black"
+                                BackgroundColor="Gray"
+                                Grid.Column="1"
+                                Clicked="cancelAssessmentSaveButton_Clicked"/>
+                    </Grid>-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

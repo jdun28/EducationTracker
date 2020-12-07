@@ -49,7 +49,7 @@ namespace EducationTracker.Classes
                 CourseStatus = "Completed",
                 CourseStart = Convert.ToDateTime("12/01/2020"),
                 CourseEnd = Convert.ToDateTime("12/10/2020"),
-                Notes = null,
+                Notes = "",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
                 InstructorEmail = "jdunl28@wgu.edu"
@@ -86,7 +86,7 @@ namespace EducationTracker.Classes
                 CourseStatus = "Enrolled",
                 CourseStart = Convert.ToDateTime("03/01/2021"),
                 CourseEnd = Convert.ToDateTime("03/31/2021"),
-                Notes = null,
+                Notes = "",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
                 InstructorEmail = "jdunl28@wgu.edu"

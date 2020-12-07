@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("EducationTracker.CoursePage.xaml", "CoursePage.xaml", typeof(global::EducationTracker.CoursePage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("EducationTracker.CoursePage.xaml", "CoursePage.xaml", typeof(global::EducationTracker.CourseListPage))]
 
 namespace EducationTracker {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("CoursePage.xaml")]
-    public partial class CoursePage : global::Xamarin.Forms.ContentPage {
+    public partial class CourseListPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.ListView CoursesLV;
@@ -33,7 +33,7 @@ namespace EducationTracker {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CoursePage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CourseListPage));
             CoursesLV = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "CoursesLV");
             viewCourseButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "viewCourseButton");
             addCourseButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "addCourseButton");

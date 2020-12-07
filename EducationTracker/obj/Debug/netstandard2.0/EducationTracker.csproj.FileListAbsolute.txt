@@ -6,8 +6,10 @@
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/AddEditCourse.xaml.g.cs
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/AddEditTerm.xaml.g.cs
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/AssessmentDetailPage.xaml.g.cs
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/AssessmentPage.xaml.g.cs
-/Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/CoursePage.xaml.g.cs
+/Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/CourseDetailPage.xaml.g.cs
+/Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/CoursesDetail.xaml.g.cs
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/EducationTracker.AssemblyInfoInputs.cache
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/EducationTracker.AssemblyInfo.cs
@@ -16,4 +18,3 @@
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/EducationTracker.dll
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/ref/EducationTracker.dll
 /Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/EducationTracker.pdb
-/Users/jendunlap/Projects/EducationTracker/EducationTracker/obj/Debug/netstandard2.0/EducationTracker.csprojAssemblyReference.cache

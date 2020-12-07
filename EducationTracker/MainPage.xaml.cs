@@ -60,7 +60,8 @@ namespace EducationTracker
 
         void ViewTermButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new CoursePage(Universals.CurrentTerm));
+            Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
+            //Navigation.PushAsync(new CoursePage());
         }
     }
 }

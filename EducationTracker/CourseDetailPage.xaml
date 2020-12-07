@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.CourseDetailPage">
+    
+       <NavigationPage.TitleView>
+        <Label x:Name="courseInfoTV"
+                   Text="Course Information"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"/>
+        </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+            <StackLayout>
+                    <Grid>
+                        <Label x:Name="courseNameTitle"
+                               Text="Course Name:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <Label x:Name="courseNameDetail"
+                               TextColor="Black"
+                               FontSize="Body"
+                               Margin="0,11,0,0"
+                               Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Label x:Name="statusTitle"
+                               Text="Course Status:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <Label x:Name="statusDetail"
+                               FontSize="Body"
+                               TextColor="Black"
+                               Margin="0,11,0,0"
+                               Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Label x:Name="startDateTitle"
+                               Text="Course Start Date:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <Label x:Name="startDateDetail"
+                               TextColor="Black"
+                               FontSize="Body"
+                               Margin="0,11,0,0"
+                               Grid.Column="1"/>
+                    </Grid>
+
+                    <Grid Padding="10,0,10,20">
+                        <Label x:Name="endDateTitle"
+                               Text="Course End Date:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <Label x:Name="endDateDetail"
+                               TextColor="Black"
+                               FontSize="Body"
+                               Margin="0,11,0,0"
+                               Grid.Column="1" />
+                    </Grid>
+                <Label Padding="10,0,0,0"
+                       Text="Instructor Information"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+                       
+                <Grid>
+                    <Label x:Name="instructorNameTitle"
+                           Text="Name:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Label x:Name="instructorNameDetail"
+                           TextColor="Black"
+                           FontSize="Body"
+                           Margin="0,11,0,0"
+                           Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Label x:Name="emailTitle"
+                           Text="Email:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Label x:Name="emailDetail"
+                           TextColor="Black"
+                           FontSize="Body"
+                           Margin="0,11,0,0"
+                           Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Label x:Name="phoneTitle"
+                           Text="Phone:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Label x:Name="phoneDetail"
+                           Margin="0,11,0,0"
+                           TextColor="Black"
+                           FontSize="Body"
+                           Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Label x:Name="notesTitle"
+                           Text="Notes:"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Margin="0,11,0,0"
+                           Grid.Column="0"/>
+                    <Label x:Name="notesDetail"
+                           TextColor="Black"
+                           FontSize="Body"
+                           Margin="0,11,0,0"
+                           Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+            <StackLayout Padding="10,0,10,10">
+
+                <Button x:Name="ViewAssessments"
+                        Text="View Assessments"
+                        FontSize="Body"
+                        Clicked="ViewAssessments_Clicked"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
