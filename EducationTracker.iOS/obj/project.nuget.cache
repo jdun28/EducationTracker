@@ -1,18 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "8g8TVURL00zhhofOoN7pocRMIAavFztAs6EmmtzFAKwKWo+v/34mM2DP1o5EehMkGIggHvITp9BPYAFPsxYBMg==",
+  "dgSpecHash": "VtbQFQrh+ZzIuEOQZ9VB89SXrbgU2O8esRXtt+YJdk+PKQBJnarZWzHhSbpsStRY8H6SuG0KpvqzcsxETc++tA==",
   "success": true,
-  "projectFilePath": "/Users/jend/Projects/EducationTracker/EducationTracker.iOS/EducationTracker.iOS.csproj",
+  "projectFilePath": "/Users/jendunlap/Projects/EducationTracker/EducationTracker.iOS/EducationTracker.iOS.csproj",
   "expectedPackageFiles": [
-    "/Users/jend/.nuget/packages/sqlite-net-pcl/1.7.335/sqlite-net-pcl.1.7.335.nupkg.sha512",
-    "/Users/jend/.nuget/packages/sqlitepclraw.bundle_green/2.0.3/sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
-    "/Users/jend/.nuget/packages/sqlitepclraw.core/2.0.3/sqlitepclraw.core.2.0.3.nupkg.sha512",
-    "/Users/jend/.nuget/packages/sqlitepclraw.provider.dynamic_cdecl/2.0.3/sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
-    "/Users/jend/.nuget/packages/system.buffers/4.4.0/system.buffers.4.4.0.nupkg.sha512",
-    "/Users/jend/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
-    "/Users/jend/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-    "/Users/jend/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "/Users/jend/.nuget/packages/xamarin.forms/4.8.0.1451/xamarin.forms.4.8.0.1451.nupkg.sha512"
+    "/Users/jendunlap/.nuget/packages/sqlite-net-pcl/1.7.335/sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/sqlitepclraw.bundle_green/2.0.3/sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/sqlitepclraw.core/2.0.3/sqlitepclraw.core.2.0.3.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/sqlitepclraw.provider.dynamic_cdecl/2.0.3/sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/system.buffers/4.4.0/system.buffers.4.4.0.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/xam.plugins.notifier/3.0.1/xam.plugins.notifier.3.0.1.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "/Users/jendunlap/.nuget/packages/xamarin.forms/4.8.0.1451/xamarin.forms.4.8.0.1451.nupkg.sha512"
   ],
   "logs": []
 }

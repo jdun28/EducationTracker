@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using EducationTracker.Classes;
 using System.Linq;
 using SQLite;
+using Plugin.LocalNotifications;
 
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace EducationTracker
 {
     public partial class CourseDetailPage : ContentPage
     {
         int termId;
+        Universals universals = new Universals();
         public CourseDetailPage(Course course)
         {
             InitializeComponent();
@@ -26,21 +29,23 @@ namespace EducationTracker
             emailDetail.Text = course.InstructorEmail;
             phoneDetail.Text = course.InstructorPhone;
 
-            if(course.Notes.Length > 0)
+            if((course.Notes != null) && (course.Notes.Length > 0))
             {
                 notesDetail.Text = course.Notes;
+                ShareNotes.IsVisible = true;
             }
             else
             {
                 notesTitle.IsVisible = false;
                 notesDetail.IsVisible = false;
+                ShareNotes.IsVisible = false;
             }
 
         }
 
         void ViewAssessments_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new AssessmentDetailPage(Universals.CurrentCourse));
+            Navigation.PushAsync(new AssessmentDetail(Universals.CurrentCourse));
         }
 
         void editCourseButton_Clicked(System.Object sender, System.EventArgs e)
@@ -52,29 +57,20 @@ namespace EducationTracker
             using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
             {
                 db.CreateTable<Course>();
-                int toDelete = db.Delete(Universals.CurrentCourse);
+                db.Delete(Universals.CurrentCourse);
                 DisplayAlert("Alert", "Course has been deleted successfully.", "Continue");
-                Universals.CurrentTerm = GetTerm(termId);
+                Universals.CurrentTerm = universals.GetTerm(termId);
                 Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
             }
         }
-        public Term GetTerm(int id)
+        void ShareNotes_Clicked(System.Object sender, System.EventArgs e)
         {
-            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
-            {
-                db.CreateTable<Term>();
-                List<Term> term = db.Query<Term>("SELECT * FROM Term WHERE TermID = '" + id + "';").ToList();
-                if (term.Count == 1)
-                {
-                    Term selectedTerm = term[0];
-                    return selectedTerm;
-                }
-                else
-                {
-                    return null;
-                }
+            Share.RequestAsync(Universals.CurrentCourse.Notes.ToString());
+        }
 
-            }
+        void EnableNotifications_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            
         }
     }
 }

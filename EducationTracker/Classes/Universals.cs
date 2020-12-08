@@ -3,6 +3,7 @@ using SQLite;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace EducationTracker.Classes
 {
@@ -16,17 +17,87 @@ namespace EducationTracker.Classes
         public static Course CurrentCourse { get; set; }
         public static Assessment CurrentAssessment { get; set; }
 
+        public Term GetTerm(int id)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+            {
+                db.CreateTable<Term>();
+                List<Term> term = db.Query<Term>("SELECT * FROM Term WHERE TermID = '" + id + "';").ToList();
+                if (term.Count == 1)
+                {
+                    Term selectedTerm = term[0];
+                    return selectedTerm;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public Course GetCourse(int courseID)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+            {
+                db.CreateTable<Course>();
+                List<Course> course = db.Query<Course>("SELECT * FROM Course WHERE CourseId = '" + courseID + "';").ToList();
+
+                if (course.Count == 1)
+                {
+                    Course currentCourse = course[0];
+                    return currentCourse;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public bool IsNotNullOrEmpty(string s)
+        {
+            return string.IsNullOrEmpty(s);
+        }
+
+        public bool CheckPhoneFormat(string phone)
+        {
+            Regex validFormat = new Regex(@"[0-9]{3}-[0-9]{3}-[0-9]{4}");
+            if (validFormat.IsMatch(phone))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CheckEmailFormat(string email)
+        {
+            Regex validFormat = new Regex(@"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-z]{2,}\b");
+            if (validFormat.IsMatch(email))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Loading All Data
         public void PopulateTerm()
         {
             Term term1 = new Term()
             {
+                TermID = 1,
                 TermName = "Winter 2020",
                 TermStart = Convert.ToDateTime("12/01/2020"),
                 TermEnd = Convert.ToDateTime("05/31/2021")
             };
 
-            Term term2 = new Term()
-            {
+        Term term2 = new Term()
+        {
+            TermID = 2,
                 TermName = "Summer 2021",
                 TermStart = Convert.ToDateTime("06/01/2021"),
                 TermEnd = Convert.ToDateTime("11/30/2021")
@@ -44,6 +115,7 @@ namespace EducationTracker.Classes
         {
             Course course1 = new Course()
             {
+                CourseID = 1,
                 TermID = 1,
                 CourseName = "Introduction to IT - C182",
                 CourseStatus = "Completed",
@@ -56,6 +128,7 @@ namespace EducationTracker.Classes
             };
             Course course2 = new Course()
             {
+                CourseID = 2,
                 TermID = 1,
                 CourseName = "Web Development Foundations - C779",
                 CourseStatus = "In Progress",
@@ -68,6 +141,7 @@ namespace EducationTracker.Classes
             };
             Course course3 = new Course()
             {
+                CourseID = 3,
                 TermID = 1,
                 CourseName = "Software Quality Assurance - C857",
                 CourseStatus = "Enrolled",
@@ -81,6 +155,7 @@ namespace EducationTracker.Classes
 
             Course course4 = new Course()
             {
+                CourseID = 4,
                 TermID = 1,
                 CourseName = "IT Applications C394",
                 CourseStatus = "Enrolled",
@@ -93,6 +168,7 @@ namespace EducationTracker.Classes
             };
             Course course5 = new Course()
             {
+                CourseID = 5,
                 TermID = 1,
                 CourseName = "IT Foundations C393",
                 CourseStatus = "Enrolled",
@@ -105,6 +181,7 @@ namespace EducationTracker.Classes
             };
             Course course6 = new Course()
             {
+                CourseID = 6,
                 TermID = 1,
                 CourseName = "Software I C# C968",
                 CourseStatus = "Enrolled",
@@ -132,6 +209,7 @@ namespace EducationTracker.Classes
         {
             Assessment course1o = new Assessment()
             {
+                AssessmentID = 1,
                 CourseID = 1,
                 AssessmentName = "C182 Objective Assessment",
                 AssessmentType = "Objective",
@@ -140,6 +218,7 @@ namespace EducationTracker.Classes
             };
             Assessment course1p = new Assessment()
             {
+                AssessmentID = 2,
                 CourseID = 1,
                 AssessmentName = "C182 Performance Assessment",
                 AssessmentType = "Performance",
@@ -148,6 +227,7 @@ namespace EducationTracker.Classes
             };
             Assessment course2o = new Assessment()
             {
+                AssessmentID = 3,
                 CourseID = 2,
                 AssessmentName = "C779 Objective Assessment",
                 AssessmentType = "Objective",
@@ -156,6 +236,7 @@ namespace EducationTracker.Classes
             };
             Assessment course2p = new Assessment()
             {
+                AssessmentID = 4,
                 CourseID = 2,
                 AssessmentName = "C779 Performance Assessment",
                 AssessmentType = "Performance",
@@ -164,6 +245,7 @@ namespace EducationTracker.Classes
             };
             Assessment course3o = new Assessment()
             {
+                AssessmentID = 5,
                 CourseID = 3,
                 AssessmentName = "C857 Objective Assessment",
                 AssessmentType = "Objective",
@@ -172,6 +254,7 @@ namespace EducationTracker.Classes
             };
             Assessment course3p = new Assessment()
             {
+                AssessmentID = 6,
                 CourseID = 3,
                 AssessmentName = "C857 Performance Assessment",
                 AssessmentType = "Performance",
@@ -181,6 +264,7 @@ namespace EducationTracker.Classes
 
             Assessment course4o = new Assessment()
             {
+                AssessmentID = 7,
                 CourseID = 4,
                 AssessmentName = "C394 Objective Assessment",
                 AssessmentType = "Objective",
@@ -189,6 +273,7 @@ namespace EducationTracker.Classes
             };
             Assessment course4p = new Assessment()
             {
+                AssessmentID = 8,
                 CourseID = 4,
                 AssessmentName = "C394 Performance Assessment",
                 AssessmentType = "Performance",
@@ -197,6 +282,7 @@ namespace EducationTracker.Classes
             };
             Assessment course5o = new Assessment()
             {
+                AssessmentID = 9,
                 CourseID = 5,
                 AssessmentName = "C393 Objective Assessment",
                 AssessmentType = "Objective",
@@ -205,6 +291,7 @@ namespace EducationTracker.Classes
             };
             Assessment course5p = new Assessment()
             {
+                AssessmentID = 10,
                 CourseID = 5,
                 AssessmentName ="C393 Performance Assessment",
                 AssessmentType = "Performance",
@@ -214,6 +301,7 @@ namespace EducationTracker.Classes
             };
             Assessment course6o = new Assessment()
             {
+                AssessmentID = 11,
                 CourseID = 6,
                 AssessmentName = "C986 Objective Assessment",
                 AssessmentType = "Objective",
@@ -222,6 +310,7 @@ namespace EducationTracker.Classes
             };
             Assessment course6p = new Assessment()
             {
+                AssessmentID = 12,
                 CourseID = 6,
                 AssessmentName = "C986 Performance Assessment",
                 AssessmentType = "Performance",
@@ -234,7 +323,7 @@ namespace EducationTracker.Classes
                 db.CreateTable<Assessment>();
                 //course 1 assessments
                 db.Insert(course1o);
-                db.Insert(course2p);
+                db.Insert(course1p);
                 //course 2 assessments
                 db.Insert(course2o);
                 db.Insert(course2p);

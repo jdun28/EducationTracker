@@ -9,7 +9,6 @@
                    FontSize="Title"
                    HorizontalTextAlignment="Center"/>
         </NavigationPage.TitleView>
-    <ContentPage.Content>
         <StackLayout>
             <ScrollView>
             <StackLayout>
@@ -66,7 +65,18 @@
                                Margin="0,11,0,0"
                                Grid.Column="1" />
                     </Grid>
-                <Label Padding="10,0,0,0"
+                <Grid>
+                    <Label x:Name="NotificationsLabel"
+                           Text="Enable Due Date Notifications?"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Grid.Column="0"/>
+                    <Switch x:Name="EnableNotifications"
+                            IsToggled="False"
+                            Toggled="EnableNotifications_Toggled"
+                            Grid.Column="1"/>
+                </Grid>
+                <Label Padding="10,10,0,0"
                        Text="Instructor Information"
                        FontSize="Subtitle"
                        FontAttributes="Bold"
@@ -124,6 +134,19 @@
                            Margin="0,11,0,0"
                            Grid.Column="1"/>
                 </Grid>
+                <Grid>
+                    <Button x:Name="ShareNotes"
+                            Text="Share Notes"
+                            Clicked="ShareNotes_Clicked"
+                            FontSize="Body"
+                            Grid.Column="0"/>
+                </Grid>
+                <Grid>
+                    <Button x:Name="ViewAssessments"
+                        Text="View Assessments"
+                        FontSize="Body"
+                        Clicked="ViewAssessments_Clicked"/>
+                </Grid>
             </StackLayout>
         </ScrollView>
             <StackLayout Padding="10,0,10,10">
@@ -133,16 +156,12 @@
                             Clicked="editCourseButton_Clicked"
                             Grid.Column="0"/>
                     <Button x:Name="deleteCourseButton"
-                            Text="Delete Class"
+                            Text="Delete"
                             Clicked="DeleteCourseButton_Clicked"
                             Grid.Column="1"/>
-                <Button x:Name="ViewAssessments"
-                        Text="View Assessments"
-                        FontSize="Body"
-                        Clicked="ViewAssessments_Clicked"
-                        Grid.Column="2"/>
+
                     </Grid>
                 </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+
 </ContentPage>

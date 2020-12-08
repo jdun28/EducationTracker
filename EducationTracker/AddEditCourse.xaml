@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.AddEditCourse">
-    <!--<NavigationPage.HasBackButton/>-->
     <NavigationPage.TitleView>
         <Label x:Name="courseInfoTV"
                    Text="Course Information"
+                   TextColor="Black"
                    FontAttributes="Bold"
                    FontSize="Title"
                    HorizontalTextAlignment="Center"/>
@@ -56,6 +56,8 @@
                                Margin="0,11,0,0"/>
                         <DatePicker x:Name="courseStartDatePicker"
                                     DateSelected="courseStartDatePicker_DateSelected"
+                                    MinimumDate="12/01/2020"
+                                    MaximumDate="01/01/3000"
                                     Grid.Column="1"/>
                     </Grid>
 
@@ -68,6 +70,8 @@
                                Margin="0,11,0,0"/>
                         <DatePicker x:Name="courseEndDatePicker"
                                     DateSelected="courseEndDatePicker_DateSelected"
+                                    MinimumDate="12/01/2020"
+                                    MaximumDate="01/01/3000"
                                     Grid.Column="1"/>
                     </Grid>
                 <Label Padding="10,0,0,0"
@@ -136,7 +140,6 @@
                            TextChanged="notesEntry_TextChanged"
                            Grid.Column="1"/>
                 </Grid>
-
             </StackLayout>
             <StackLayout>
                     <Grid VerticalOptions="End" HorizontalOptions="Center">

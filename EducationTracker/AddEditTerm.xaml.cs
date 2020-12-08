@@ -17,7 +17,7 @@ namespace EducationTracker
         DateTime d_start;
         DateTime d_end;
         string termName;
-        
+
         public AddEditTerm()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace EducationTracker
 
             termNameEntry.Text = term.TermName;
             termStart.Date = Convert.ToDateTime(term.TermStart);
-            termEnd.Date= Convert.ToDateTime(term.TermEnd);
+            termEnd.Date = Convert.ToDateTime(term.TermEnd);
         }
 
         void saveTermButton_Clicked(System.Object sender, System.EventArgs e)
@@ -58,7 +58,7 @@ namespace EducationTracker
                     }
                     catch (Exception)
                     {
-                        DisplayAlert("Error", "An error has occurred. Please try again." , "OK");
+                        DisplayAlert("Error", "An error has occurred. Please try again.", "OK");
                     }
                 }
             }

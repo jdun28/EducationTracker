@@ -36,13 +36,15 @@ namespace EducationTracker
 
                 int toDelete = db.Delete(Universals.CurrentTerm);
                 DisplayAlert("Alert", "Term has been deleted.", "Continue");
+                Navigation.PushAsync(new MainPage());
             }
-            OnAppearing();
+            
         }
 
         void TermsListView_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             Universals.CurrentTerm = TermsListView.SelectedItem as Term;
+            Navigation.PushAsync(new TermDetail(Universals.CurrentTerm));
         }
 
         protected override void OnAppearing()
@@ -56,11 +58,6 @@ namespace EducationTracker
                 TermsListView.ItemsSource = terms;
             }
             
-        }
-
-        void ViewTermButton_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
-        }
+        }        
     }
 }

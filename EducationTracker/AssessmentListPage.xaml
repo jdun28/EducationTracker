@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.AssessmentListPage">
+     <NavigationPage.TitleView>
+        <Label x:Name="assessmentInfoTV"
+                   Text="Assessments"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"/>
+        </NavigationPage.TitleView>
+        <StackLayout>
+            <StackLayout>
+                <ScrollView>
+                    <StackLayout>
+                        <ListView x:Name="AssessmentLV"
+                                  ItemSelected="AssessmentLV_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding AssessmentName}"
+                                              Detail="{Binding AssessmentStart, StringFormat='{AppThemeBinding:MM/dd/yyyy}'}"
+                                              TextColor="Black"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout>
+                <Grid VerticalOptions="End" HorizontalOptions="Center">
+                        <Button x:Name="AddAssessment"
+                                Text="Add"
+                                Clicked="AddAssessment_Clicked"
+                                FontSize="Body"
+                                TextColor="Black"/>
+                    </Grid>
+            </StackLayout>
+        </StackLayout>
+</ContentPage>

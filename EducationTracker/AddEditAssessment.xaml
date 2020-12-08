@@ -3,25 +3,27 @@
     <!--<NavigationPage.HasBackButton/>-->
     <NavigationPage.TitleView>
         <Label x:Name="assessmentInfoTV"
-                   Text="Assessment Information"
-                   FontAttributes="Bold"
-                   FontSize="Title"
-                   HorizontalTextAlignment="Center"/>
+               Text="Assessment Information"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="Black"
+               HorizontalTextAlignment="Center"/>
         </NavigationPage.TitleView>
         <StackLayout>
             <StackLayout>
                 <Grid>
                     <Label Text="Assessment Name"
-                            FontSize="Subtitle"
-                            TextColor="Black"
-                            Grid.Column="0"
-                            Margin="0,11,0,0"/>
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Margin="0,11,0,0"/>
                     <Entry x:Name="assessmentNameEntry"
-                            Placeholder="Enter assessment Name"
-                            PlaceholderColor="Gray"
-                            FontSize="Body"
-                            TextColor="Black"
-                            Grid.Column="1"/>
+                           Placeholder="Enter assessment Name"
+                           PlaceholderColor="Gray"
+                           FontSize="Body"
+                           TextColor="Black"
+                           TextChanged="assessmentNameEntry_TextChanged"
+                           Grid.Column="1"/>
                 </Grid>
                 <Grid Padding="10,0,10,20">
                     <Label Text="Assessment Type"
@@ -33,6 +35,7 @@
                             TextColor="Black"
                             TitleColor="Gray"
                             Title="Assessment Type"
+                            SelectedIndexChanged="assessmentPicker_SelectedIndexChanged"
                             FontSize="Body"
                             Grid.Column="1">
                             <Picker.ItemsSource>
@@ -43,6 +46,32 @@
                             </Picker.ItemsSource>
                     </Picker>
                 </Grid>
+                 <Grid>
+                        <Label 
+                               Text="Assessment Start Date:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <DatePicker x:Name="assessmentStartDatePicker"
+                                    DateSelected="assessmentStartDatePicker_DateSelected"
+                                    MinimumDate="12/01/2020"
+                                    MaximumDate="01/01/3000"
+                                    Grid.Column="1"/>
+                    </Grid>
+                 <Grid Padding="10,0,10,20">
+                        <Label 
+                               Text="Assessment End Date:"
+                               FontSize="Subtitle"
+                               TextColor="Black"
+                               Grid.Column="0"
+                               Margin="0,11,0,0"/>
+                        <DatePicker x:Name="assessmentEndDatePicker"
+                                    DateSelected="assessmentEndDatePicker_DateSelected"
+                                    MinimumDate="12/01/2020"
+                                    MaximumDate="01/01/3000"
+                                    Grid.Column="1"/>
+                    </Grid>
             </StackLayout>
             <StackLayout>
                 <Grid VerticalOptions="End" HorizontalOptions="Center">

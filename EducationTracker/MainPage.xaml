@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EducationTracker.MainPage">
     <NavigationPage.TitleView>
-        <Label Text="Education Tracker"
+        <Label Text="Terms"
                x:Name="educationTrackerTV"
                TextColor="Black"
                FontAttributes="Bold"
@@ -28,22 +28,9 @@
             </ScrollView>
                     <Grid HorizontalOptions="Center"
                           Padding="10,0,10,10">
-                        <Button x:Name="viewTermButton"
-                                Text="View"
-                                Clicked="ViewTermButton_Clicked"
-                                Grid.Column="0"/>
                         <Button x:Name="AddTermButton"
                                 Text="Add"
-                                Clicked="AddTermButton_Clicked"
-                                Grid.Column="1"/>
-                        <Button x:Name="EditTermButton"
-                                Text="Edit"
-                                Clicked="EditTermButton_Clicked"
-                                Grid.Column="2"/>
-                        <Button x:Name="DeleteTermButton"
-                                Text="Delete"
-                                Clicked="DeleteTermButton_Clicked"
-                                Grid.Column="3"/>
+                                Clicked="AddTermButton_Clicked"/>
                     </Grid>
         </StackLayout>
     </ContentPage.Content>

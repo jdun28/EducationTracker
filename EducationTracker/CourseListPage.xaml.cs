@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using EducationTracker.Classes;
 using SQLite;
 using System.Linq;
-using System.Collections.Generic;
 using Xamarin.Forms;
+
 
 namespace EducationTracker
 {
@@ -17,12 +18,14 @@ namespace EducationTracker
         {
             InitializeComponent();
         }
+
         public CourseListPage(Term SelectedTerm)
         {
             InitializeComponent();
+            Universals.CurrentTerm = SelectedTerm;
             termID = SelectedTerm.TermID;
-            
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -37,31 +40,26 @@ namespace EducationTracker
 
         void AddCourseButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new AddEditCourse());
-        }
-
-        void EditCourseButton_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new AddEditCourse(Universals.CurrentCourse));
-        }
-
-        void DeleteCourseButton_Clicked(System.Object sender, System.EventArgs e)
-        {
             using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
             {
                 db.CreateTable<Course>();
-                int toDelete = db.Delete(Universals.CurrentCourse);
-                DisplayAlert("Alert", "Course has been deleted successfully.", "Continue");
+                var courseInTerm = db.Query<Course>("SELECT * FROM Course WHERE TermID= '" + termID + "';").ToList();
+
+                if (courseInTerm.Count < 6)
+                {
+                    Navigation.PushAsync(new AddEditCourse(Universals.CurrentTerm));
+                }
+                else
+                {
+                    DisplayAlert("Alert", "Cannot add more than six classes per term.", "Continue");
+                }
             }
         }
-        void viewCourseButton_Clicked(System.Object sender, System.EventArgs e)
-        {
-            
-        }
-
         void CoursesLV_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             Universals.CurrentCourse = CoursesLV.SelectedItem as Course;
+            Navigation.PushAsync(new CourseDetailPage(Universals.CurrentCourse));
         }
+
     }
 }
