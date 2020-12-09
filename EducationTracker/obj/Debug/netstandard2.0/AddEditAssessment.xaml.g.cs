@@ -23,7 +23,7 @@ namespace EducationTracker {
         private global::Xamarin.Forms.Entry assessmentNameEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Picker assessmentPicker;
+        private global::Xamarin.Forms.Picker assessmentTypePicker;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.DatePicker assessmentStartDatePicker;
@@ -42,7 +42,7 @@ namespace EducationTracker {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AddEditAssessment));
             assessmentInfoTV = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "assessmentInfoTV");
             assessmentNameEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "assessmentNameEntry");
-            assessmentPicker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "assessmentPicker");
+            assessmentTypePicker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "assessmentTypePicker");
             assessmentStartDatePicker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.DatePicker>(this, "assessmentStartDatePicker");
             assessmentEndDatePicker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.DatePicker>(this, "assessmentEndDatePicker");
             saveAssessmentButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "saveAssessmentButton");

@@ -11,6 +11,7 @@ namespace EducationTracker.Classes
         public string AssessmentType { get; set; }
         public DateTime AssessmentStart { get; set; }
         public DateTime AssessmentEnd { get; set; }
+        public bool Notification { get; set; }
 
         public Assessment()
         {

@@ -11,8 +11,6 @@ namespace EducationTracker
     public partial class CourseListPage : ContentPage
     {
         int termID;
-        Universals universals = new Universals();
-        Course newCourse = new Course();
 
         public CourseListPage()
         {

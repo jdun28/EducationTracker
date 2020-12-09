@@ -41,15 +41,15 @@ namespace EducationTracker.Classes
             {
                 db.CreateTable<Course>();
                 List<Course> course = db.Query<Course>("SELECT * FROM Course WHERE CourseId = '" + courseID + "';").ToList();
-
+                Course currentCourse;
                 if (course.Count == 1)
                 {
-                    Course currentCourse = course[0];
+                    currentCourse = course[0];
                     return currentCourse;
                 }
                 else
                 {
-                    return null;
+                    return currentCourse = null;
                 }
             }
         }
@@ -120,11 +120,12 @@ namespace EducationTracker.Classes
                 CourseName = "Introduction to IT - C182",
                 CourseStatus = "Completed",
                 CourseStart = Convert.ToDateTime("12/01/2020"),
-                CourseEnd = Convert.ToDateTime("12/10/2020"),
+                CourseEnd = Convert.ToDateTime("12/08/2020"),
                 Notes = "",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
-                InstructorEmail = "jdunl28@wgu.edu"
+                InstructorEmail = "jdunl28@wgu.edu",
+                Notification = true
             };
             Course course2 = new Course()
             {
@@ -132,12 +133,13 @@ namespace EducationTracker.Classes
                 TermID = 1,
                 CourseName = "Web Development Foundations - C779",
                 CourseStatus = "In Progress",
-                CourseStart = Convert.ToDateTime("12/11/2020"),
+                CourseStart = Convert.ToDateTime("12/10/2020"),
                 CourseEnd = Convert.ToDateTime("01/31/2021"),
                 Notes = "test note",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
-                InstructorEmail = "jdunl28@wgu.edu"
+                InstructorEmail = "jdunl28@wgu.edu",
+                Notification = true
             };
             Course course3 = new Course()
             {
@@ -150,7 +152,8 @@ namespace EducationTracker.Classes
                 Notes = "test note",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
-                InstructorEmail = "jdunl28@wgu.edu"
+                InstructorEmail = "jdunl28@wgu.edu",
+                Notification = false
             };
 
             Course course4 = new Course()
@@ -164,7 +167,8 @@ namespace EducationTracker.Classes
                 Notes = "",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
-                InstructorEmail = "jdunl28@wgu.edu"
+                InstructorEmail = "jdunl28@wgu.edu",
+                Notification = false
             };
             Course course5 = new Course()
             {
@@ -177,7 +181,8 @@ namespace EducationTracker.Classes
                 Notes = "test note",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
-                InstructorEmail = "jdunl28@wgu.edu"
+                InstructorEmail = "jdunl28@wgu.edu",
+                Notification = false
             };
             Course course6 = new Course()
             {
@@ -190,7 +195,8 @@ namespace EducationTracker.Classes
                 Notes = "test note",
                 InstructorName = "Jen Dunlap",
                 InstructorPhone = "360-480-8229",
-                InstructorEmail = "jdunl28@wgu.edu"
+                InstructorEmail = "jdunl28@wgu.edu",
+                Notification = false
             };
             using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
             {
@@ -214,7 +220,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C182 Objective Assessment",
                 AssessmentType = "Objective",
                 AssessmentStart = Convert.ToDateTime("12/10/2020"),
-                AssessmentEnd = Convert.ToDateTime("12/10/2020")
+                AssessmentEnd = Convert.ToDateTime("12/10/2020"),
+                Notification = false
             };
             Assessment course1p = new Assessment()
             {
@@ -223,7 +230,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C182 Performance Assessment",
                 AssessmentType = "Performance",
                 AssessmentStart = Convert.ToDateTime("12/08/2020"),
-                AssessmentEnd = Convert.ToDateTime("12/10/2020")
+                AssessmentEnd = Convert.ToDateTime("12/10/2020"),
+                Notification = false
             };
             Assessment course2o = new Assessment()
             {
@@ -232,7 +240,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C779 Objective Assessment",
                 AssessmentType = "Objective",
                 AssessmentStart = Convert.ToDateTime("01/31/2021"),
-                AssessmentEnd = Convert.ToDateTime("01/31/2021")
+                AssessmentEnd = Convert.ToDateTime("01/31/2021"),
+                Notification = false
             };
             Assessment course2p = new Assessment()
             {
@@ -241,7 +250,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C779 Performance Assessment",
                 AssessmentType = "Performance",
                 AssessmentStart = Convert.ToDateTime("01/15/2021"),
-                AssessmentEnd = Convert.ToDateTime("01/31/2021")
+                AssessmentEnd = Convert.ToDateTime("01/31/2021"),
+                Notification = false
             };
             Assessment course3o = new Assessment()
             {
@@ -250,7 +260,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C857 Objective Assessment",
                 AssessmentType = "Objective",
                 AssessmentStart = Convert.ToDateTime("02/28/2021"),
-                AssessmentEnd = Convert.ToDateTime("02/28/2021")
+                AssessmentEnd = Convert.ToDateTime("02/28/2021"),
+                Notification = false
             };
             Assessment course3p = new Assessment()
             {
@@ -259,7 +270,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C857 Performance Assessment",
                 AssessmentType = "Performance",
                 AssessmentStart = Convert.ToDateTime("02/25/2021"),
-                AssessmentEnd = Convert.ToDateTime("02/28/2021")
+                AssessmentEnd = Convert.ToDateTime("02/28/2021"),
+                Notification = false
             };
 
             Assessment course4o = new Assessment()
@@ -269,7 +281,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C394 Objective Assessment",
                 AssessmentType = "Objective",
                 AssessmentStart = Convert.ToDateTime("03/24/2021"),
-                AssessmentEnd = Convert.ToDateTime("3/24/2021")
+                AssessmentEnd = Convert.ToDateTime("3/24/2021"),
+                Notification = false
             };
             Assessment course4p = new Assessment()
             {
@@ -278,7 +291,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C394 Performance Assessment",
                 AssessmentType = "Performance",
                 AssessmentStart = Convert.ToDateTime("03/12/2021"),
-                AssessmentEnd = Convert.ToDateTime("03/24/2021")
+                AssessmentEnd = Convert.ToDateTime("03/24/2021"),
+                Notification = false
             };
             Assessment course5o = new Assessment()
             {
@@ -287,7 +301,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C393 Objective Assessment",
                 AssessmentType = "Objective",
                 AssessmentStart = Convert.ToDateTime("4/29/2021"),
-                AssessmentEnd = Convert.ToDateTime("04/29/2021")
+                AssessmentEnd = Convert.ToDateTime("04/29/2021"),
+                Notification = false
             };
             Assessment course5p = new Assessment()
             {
@@ -296,7 +311,8 @@ namespace EducationTracker.Classes
                 AssessmentName ="C393 Performance Assessment",
                 AssessmentType = "Performance",
                 AssessmentStart = Convert.ToDateTime("4/20/2021"),
-                AssessmentEnd = Convert.ToDateTime("04/30/2021")
+                AssessmentEnd = Convert.ToDateTime("04/30/2021"),
+                Notification = false
 
             };
             Assessment course6o = new Assessment()
@@ -306,7 +322,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C986 Objective Assessment",
                 AssessmentType = "Objective",
                 AssessmentStart = Convert.ToDateTime("5/15/2021"),
-                AssessmentEnd = Convert.ToDateTime("05/15/2021")
+                AssessmentEnd = Convert.ToDateTime("05/15/2021"),
+                Notification = false
             };
             Assessment course6p = new Assessment()
             {
@@ -315,7 +332,8 @@ namespace EducationTracker.Classes
                 AssessmentName = "C986 Performance Assessment",
                 AssessmentType = "Performance",
                 AssessmentStart = Convert.ToDateTime("5/15/2021"),
-                AssessmentEnd = Convert.ToDateTime("05/30/2021")
+                AssessmentEnd = Convert.ToDateTime("05/30/2021"),
+                Notification = false
             };
 
             using (SQLiteConnection db = new SQLiteConnection(App.FilePath))

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EducationTracker.Classes;
 using SQLite;
 using Xamarin.Forms;
+using System.Linq;
+using Plugin.LocalNotifications;
 
 namespace EducationTracker
 {
@@ -10,7 +12,7 @@ namespace EducationTracker
     {
         Universals universals = new Universals();
         int courseID;
-
+        
         public AssessmentDetailPage()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace EducationTracker
             assessmentTypeText.Text = assessment.AssessmentType;
             assessmentStart.Text = assessment.AssessmentStart.ToString();
             assessmentEnd.Text = assessment.AssessmentEnd.ToString();
+            EnableNotifications.IsToggled = assessment.Notification;
 
         }
 
@@ -40,8 +43,34 @@ namespace EducationTracker
                 db.Delete(Universals.CurrentAssessment);
                 DisplayAlert("Alert", "Your assessment has been deleted.", "Continue");
                 Universals.CurrentCourse = universals.GetCourse(courseID);
-                Navigation.PushAsync(new AssessmentDetail(Universals.CurrentCourse));
+                Navigation.PushAsync(new AssessmentListPage(Universals.CurrentCourse));
             }
+        }
+
+        void EnableNotifications_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            if (e.Value)
+            {
+                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+                {
+                    db.CreateTable<Assessment>();
+                    List<Assessment> assessmentList = db.Query<Assessment>("SELECT * FROM Assessment;").ToList();
+                    
+                    db.Execute("UPDATE Assessment SET Notification = true WHERE AssessmentID = " + Universals.CurrentAssessment.AssessmentID + ";");
+                }
+            }
+            if (!e.Value)
+            {
+                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+                {
+                    db.CreateTable<Assessment>();
+                    List<Assessment> assessmentList = db.Query<Assessment>("SELECT * FROM Assessment;").ToList();
+                    db.Execute("UPDATE Assessment SET Notification = false WHERE AssessmentID = " + Universals.CurrentAssessment.AssessmentID + ";");
+                    CrossLocalNotifications.Current.Cancel(103);
+                    CrossLocalNotifications.Current.Cancel(104);
+                }
+            }
+
         }
     }
 }

@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using EducationTracker.Classes;
 using SQLite;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace EducationTracker
 {
     public partial class AssessmentListPage : ContentPage
     {
         int courseId;
+        Universals universals = new Universals();
         public AssessmentListPage(Course course)
         {
             InitializeComponent();
+            Universals.CurrentCourse = universals.GetCourse(course.CourseID);
             courseId = course.CourseID;
         }
 
@@ -34,7 +37,19 @@ namespace EducationTracker
 
         void AddAssessment_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new AddEditAssessment());
+            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+            {
+                db.CreateTable<Assessment>();
+                var schedAssess = db.Query<Assessment>("SELECT * FROM Assessment WHERE CourseID = " + courseId + ";");
+                if (schedAssess.Count < 2)
+                {
+                    Navigation.PushAsync(new AddEditAssessment(Universals.CurrentCourse));
+                }
+                else
+                {
+                    DisplayAlert("Alert", "Cannot schedule more than two assessments per course.", "Continue");
+                }
+            }
         }
     }
 }

@@ -118,7 +118,7 @@
                            Margin="0,11,0,0"
                            Grid.Column="0"/>
                     <Entry x:Name="instrutorPhoneEntry"
-                           Placeholder="Instructor"
+                           Placeholder="Instructor Phone"
                            PlaceholderColor="Gray"
                            TextColor="Black"
                            FontSize="Body"

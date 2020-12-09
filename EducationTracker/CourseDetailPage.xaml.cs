@@ -13,6 +13,7 @@ namespace EducationTracker
     public partial class CourseDetailPage : ContentPage
     {
         int termId;
+        int courseId;
         Universals universals = new Universals();
         public CourseDetailPage(Course course)
         {
@@ -20,7 +21,7 @@ namespace EducationTracker
             
             Universals.CurrentCourse = course;
             termId = course.TermID;
-
+            courseId = course.CourseID;
             courseNameDetail.Text = course.CourseName;
             statusDetail.Text = course.CourseStatus;
             startDateDetail.Text = course.CourseStart.ToString();
@@ -28,6 +29,8 @@ namespace EducationTracker
             instructorNameDetail.Text = course.InstructorName;
             emailDetail.Text = course.InstructorEmail;
             phoneDetail.Text = course.InstructorPhone;
+            EnableNotifications.IsToggled = course.Notification;
+
 
             if((course.Notes != null) && (course.Notes.Length > 0))
             {
@@ -45,7 +48,7 @@ namespace EducationTracker
 
         void ViewAssessments_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new AssessmentDetail(Universals.CurrentCourse));
+            Navigation.PushAsync(new AssessmentListPage(Universals.CurrentCourse));
         }
 
         void editCourseButton_Clicked(System.Object sender, System.EventArgs e)
@@ -60,7 +63,7 @@ namespace EducationTracker
                 db.Delete(Universals.CurrentCourse);
                 DisplayAlert("Alert", "Course has been deleted successfully.", "Continue");
                 Universals.CurrentTerm = universals.GetTerm(termId);
-                Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
+                Navigation.PushAsync(new CourseListPage(Universals.CurrentTerm));
             }
         }
         void ShareNotes_Clicked(System.Object sender, System.EventArgs e)
@@ -70,7 +73,26 @@ namespace EducationTracker
 
         void EnableNotifications_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
         {
-            
+            if (e.Value)
+            {
+                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+                {
+                    db.CreateTable<Course>();
+                    List<Course> courseList = db.Query<Course>("SELECT * FROM Course;").ToList();
+                    db.Execute("UPDATE Course SET Notification = true WHERE CourseID = " + Universals.CurrentCourse.CourseID + ";");
+                }
+            }
+            if(!e.Value)
+            {
+                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+                {
+                    db.CreateTable<Course>();
+                    List<Course> courseList = db.Query<Course>("SELECT * FROM Course;").ToList();
+                    db.Execute("UPDATE Course SET Notification = false WHERE CourseID = " + Universals.CurrentCourse.CourseID + ";");
+                    CrossLocalNotifications.Current.Cancel(101);
+                    CrossLocalNotifications.Current.Cancel(102);
+                }
+            }
         }
     }
 }

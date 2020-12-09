@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using EducationTracker.Classes;
 using Xamarin.Forms.Xaml;
+using SQLite;
+using System.Linq;
 
 namespace EducationTracker
 {
@@ -26,9 +28,27 @@ namespace EducationTracker
 
         protected override void OnStart()
         {
-            universals.PopulateTerm();
-            universals.PopulateCourses();
-            universals.PopulateAssessment();
+            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+            {
+                db.CreateTable<Term>();
+                var tCount = db.Query<Term>("SELECT * FROM Term");
+                if (tCount.Count == 0)
+                {
+                    universals.PopulateTerm();
+                }
+                db.CreateTable<Course>();
+                var cCount = db.Query<Course>("SELECT * FROM Course");
+                if(cCount.Count == 0)
+                {
+                    universals.PopulateCourses();
+                }
+                db.CreateTable<Assessment>();
+                var aCount = db.Query<Assessment>("SELECT * FROM ASSESSMENT");
+                if(aCount.Count == 0)
+                {
+                    universals.PopulateAssessment();
+                }
+            }
         }
 
         protected override void OnSleep()

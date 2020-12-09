@@ -23,13 +23,17 @@ namespace EducationTracker
         string iEmail;
         string iPhone;
         string cNotes;
+        bool courseNotification;
 
         public AddEditCourse(Term term)
         {
             InitializeComponent();
             Universals.CurrentTerm = term;
+            Universals.CurrentTerm.TermID = term.TermID;
             start = DateTime.Today;
             end = DateTime.Today;
+            saveCourseButton.IsEnabled = false;
+            Universals.CurrentCourse = null;
 
         }
         public AddEditCourse(Course course)
@@ -39,55 +43,71 @@ namespace EducationTracker
             termId = course.TermID;
             courseId = course.CourseID;
             courseNameEntry.Text = course.CourseName;
-            courseStatusPicker.Title = course.CourseStatus.ToString();
+            courseStatusPicker.SelectedItem = course.CourseStatus.ToString();
             courseStartDatePicker.Date = Convert.ToDateTime(course.CourseStart);
             courseEndDatePicker.Date = Convert.ToDateTime(course.CourseEnd);
             instrutorNameEntry.Text = course.InstructorName;
             instrutorEmailEntry.Text = course.InstructorEmail;
             instrutorPhoneEntry.Text = course.InstructorPhone;
             notesEntry.Text = course.Notes;
+            courseNotification = course.Notification;
         }
 
         bool SaveAllowed()
         {
-            if(!universals.IsNotNullOrEmpty(courseNameEntry.Text))
+            if(string.IsNullOrEmpty(courseNameEntry.Text))
             {
                 return false;
             }
-            if(!universals.IsNotNullOrEmpty(instrutorNameEntry.Text))
+            if (string.IsNullOrEmpty(instrutorNameEntry.Text))
             {
                 return false;
             }
-            if(!universals.IsNotNullOrEmpty(instrutorEmailEntry.Text))
+            if (string.IsNullOrEmpty(instrutorEmailEntry.Text))
             {
                 return false;
             }
-            if(universals.IsNotNullOrEmpty(instrutorPhoneEntry.Text))
+            if (string.IsNullOrEmpty(instrutorPhoneEntry.Text))
             {
                 return false;
             }
-            if(!universals.CheckPhoneFormat(instrutorPhoneEntry.Text))
+            if (string.IsNullOrEmpty(cStatus))
             {
                 return false;
             }
-            if(!universals.CheckEmailFormat(instrutorEmailEntry.Text))
+
+            else
             {
-                return false;
+                return true;
             }
-            return true;
         }
 
         void saveCourseButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            
+            bool startAfterEnd = start > end;
+            if (startAfterEnd)
+            {
+                DisplayAlert("Alert", "Cannot save course. Start date must be before end end date. Please try again.", "Continue");
+                return;
+            }
             if (Universals.CurrentCourse != null)
             {
-                if (start > end)
+                if (courseStartDatePicker.Date == Universals.CurrentCourse.CourseStart)
                 {
-                    DisplayAlert("Alert", "Cannot save course. Start date must be before end end date. Please try again.", "Continue");
+                    start = Universals.CurrentCourse.CourseStart;
                 }
+                if (courseEndDatePicker.Date == Universals.CurrentCourse.CourseEnd)
+                {
+                    end = Universals.CurrentCourse.CourseEnd;
+                }
+                if((courseStatusPicker.Items[courseStatusPicker.SelectedIndex]).ToString() == Universals.CurrentCourse.CourseStatus)
+                {
+                    cStatus = Universals.CurrentCourse.CourseStatus;
+                }
+                
                 else
                 {
+                    
                     Universals.CurrentTerm = universals.GetTerm(termId);
                     Universals.CurrentCourse.CourseID = courseId;
                     Universals.CurrentCourse.TermID = termId;
@@ -99,6 +119,8 @@ namespace EducationTracker
                     Universals.CurrentCourse.InstructorEmail = iEmail;
                     Universals.CurrentCourse.InstructorPhone = iPhone;
                     Universals.CurrentCourse.Notes = cNotes;
+                    Universals.CurrentCourse.Notification = courseNotification;
+
                     try
                     {
                         using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
@@ -106,7 +128,7 @@ namespace EducationTracker
                             db.CreateTable<Course>();
                             db.Update(Universals.CurrentCourse);
                             DisplayAlert("Alert", "Course Information has been updated.", "Continue");
-                            Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
+                            Navigation.PushAsync(new CourseListPage(Universals.CurrentTerm));
                         }
                     }
                     catch (Exception)
@@ -135,7 +157,8 @@ namespace EducationTracker
                             InstructorName = iName,
                             InstructorEmail = iEmail,
                             InstructorPhone = iPhone,
-                            Notes = cNotes
+                            Notes = cNotes,
+                            Notification = false
                         };
                         using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
                         {
@@ -143,7 +166,7 @@ namespace EducationTracker
                             db.Insert(newCourse);
                         }
                         DisplayAlert("Alert", "Course added successfully.", "Continue");
-                        Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
+                        Navigation.PushAsync(new CourseListPage(Universals.CurrentTerm));
                     }
                     catch (Exception)
                     {
@@ -155,7 +178,7 @@ namespace EducationTracker
 
         void cancelCourseSaveButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
+            Navigation.PushAsync(new CourseListPage(Universals.CurrentTerm));
         }
 
         void courseNameEntry_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
@@ -166,9 +189,8 @@ namespace EducationTracker
 
         void courseStatusPicker_SelectedIndexChanged(System.Object sender, System.EventArgs e)
         {
-
-            cStatus = courseStatusPicker.SelectedItem.ToString();
-            
+            cStatus = (courseStatusPicker.Items[courseStatusPicker.SelectedIndex]).ToString();
+            saveCourseButton.IsEnabled = SaveAllowed();
         }
 
         void courseStartDatePicker_DateSelected(System.Object sender, Xamarin.Forms.DateChangedEventArgs e)
