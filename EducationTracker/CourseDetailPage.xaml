@@ -67,7 +67,7 @@
                     </Grid>
                 <Grid>
                     <Label x:Name="NotificationsLabel"
-                           Text="Enable Due Date Notifications?"
+                           Text="Enable Notifications?"
                            FontSize="Subtitle"
                            TextColor="Black"
                            Grid.Column="0"/>
@@ -76,7 +76,7 @@
                             Toggled="EnableNotifications_Toggled"
                             Grid.Column="1"/>
                 </Grid>
-                <Label Padding="10,10,0,0"
+                <Label Padding="10,20,0,0"
                        Text="Instructor Information"
                        FontSize="Subtitle"
                        FontAttributes="Bold"

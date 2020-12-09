@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using EducationTracker.Classes;
 using SQLite;
 using Xamarin.Forms;
+using Plugin.LocalNotifications;
 
 namespace EducationTracker
 {
@@ -50,14 +51,43 @@ namespace EducationTracker
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            
+
             using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
             {
                 db.CreateTable<Term>();
                 var terms = db.Table<Term>().ToList();
                 TermsListView.ItemsSource = terms;
+
+                db.CreateTable<Course>();
+                List<Course> cAlertCheck = db.Query<Course>("SELECT * FROM Course WHERE Notification = true;");
+
+                for (int i =0; i < cAlertCheck.Count; i++)
+                {
+                    if (cAlertCheck[i].CourseStart == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("Course Notification", "Course " + cAlertCheck[i].CourseName.ToString() + " starts today. Good luck!", 100);
+                    }
+                    if (cAlertCheck[i].CourseEnd == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("Course Notification", "Course " + cAlertCheck[i].CourseName.ToString() + " ends today. Congrats!", 101);
+                    }
+                }
+
+                db.CreateTable<Assessment>();
+                List<Assessment> aAlertCheck = db.Query<Assessment>("SELECT * FROM Assessment WHERE Notification = true;");
+
+                for (int i =0; i < aAlertCheck.Count; i++)
+                {
+                    if(aAlertCheck[i].AssessmentStart == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("Assessment Notification", aAlertCheck[i].AssessmentName.ToString() + "is today. Good luck!", 102);
+                    }
+                    if(aAlertCheck[i].AssessmentEnd == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("Assessment Notification", aAlertCheck[i].AssessmentName.ToString() + "ends today. Congrats!", 103);
+                    }
+                }
             }
-            
         }        
     }
 }

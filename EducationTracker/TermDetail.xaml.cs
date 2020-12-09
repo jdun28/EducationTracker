@@ -24,7 +24,7 @@ namespace EducationTracker
 
         void ViewCourses_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new CoursesDetail(Universals.CurrentTerm));
+            Navigation.PushAsync(new CourseListPage(Universals.CurrentTerm));
         }
 
         void EditTerm_Clicked(System.Object sender, System.EventArgs e)

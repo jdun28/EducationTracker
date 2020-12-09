@@ -17,7 +17,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextCell Text="{Binding AssessmentName}"
-                                              Detail="{Binding AssessmentStart, StringFormat='{AppThemeBinding:MM/dd/yyyy}'}"
+                                              Detail="{Binding AssessmentStart, StringFormat='{0:MM/dd/yyyy}'}"
                                               TextColor="Black"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

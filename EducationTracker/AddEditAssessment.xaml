@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EducationTracker.AddEditAssessment">
-    <!--<NavigationPage.HasBackButton/>-->
     <NavigationPage.TitleView>
         <Label x:Name="assessmentInfoTV"
                Text="Assessment Information"
@@ -31,17 +30,17 @@
                            FontSize="Subtitle"
                            Grid.Column="0"
                            Margin="0,11,0,0"/>
-                    <Picker x:Name="assessmentPicker"
+                    <Picker x:Name="assessmentTypePicker"
                             TextColor="Black"
                             TitleColor="Gray"
                             Title="Assessment Type"
-                            SelectedIndexChanged="assessmentPicker_SelectedIndexChanged"
+                            SelectedIndexChanged="assessmentTypePicker_SelectedIndexChanged"
                             FontSize="Body"
                             Grid.Column="1">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>Objective Assessment</x:String>
-                                    <x:String>Performance Assessment</x:String>
+                                    <x:String>Objective</x:String>
+                                    <x:String>Performance</x:String>
                                     </x:Array>
                             </Picker.ItemsSource>
                     </Picker>

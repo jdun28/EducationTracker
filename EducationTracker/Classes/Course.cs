@@ -15,6 +15,7 @@ namespace EducationTracker.Classes
         public string InstructorName { get; set; }
         public string InstructorPhone { get; set; }
         public string InstructorEmail { get; set; }
+        public bool Notification { get; set; }
 
 
         public Course()

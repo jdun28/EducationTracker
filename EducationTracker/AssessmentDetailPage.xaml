@@ -59,9 +59,20 @@
                            Margin="0,11,0,0"
                            Grid.Column="1"/>
                 </Grid>
+                <Grid>
+                    <Label x:Name="NotificationsLabel"
+                           Text="Enable Notifications?"
+                           FontSize="Subtitle"
+                           TextColor="Black"
+                           Grid.Column="0"/>
+                    <Switch x:Name="EnableNotifications"
+                            IsToggled="False"
+                            Toggled="EnableNotifications_Toggled"
+                            Grid.Column="1"/>
+                </Grid>
             </StackLayout>
             <StackLayout>
-                <Grid>
+                <Grid Padding="10,10">
                     <Button x:Name="EditAssessment"
                             Text="Edit"
                             Clicked="EditAssessment_Clicked"
